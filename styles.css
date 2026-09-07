@@ -1,0 +1,246 @@
+/* =============================================================
+   DESIGN TOKENS
+   Change these six values and the whole site re-themes itself.
+============================================================= */
+:root {
+  --ink: #2b2620;
+  --paper: #f6f1e7;
+  --card: #fbf8f2;
+  --clay: #a9613f;
+  --olive: #5b6b4c;
+  --gold: #b98b3e;
+  --line: rgba(43, 38, 32, 0.14);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Work Sans", sans-serif;
+
+  --gap: clamp(1.25rem, 3vw, 2.5rem);
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; margin: 0; }
+p { margin: 0 0 1em; max-width: 62ch; }
+a { color: inherit; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper); padding: 0.75em 1em; z-index: 200;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+
+section { padding: clamp(3rem, 8vw, 6rem) var(--gap); max-width: var(--max); margin: 0 auto; }
+section h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1.5rem; }
+
+/* =============================================================
+   NAV
+============================================================= */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.site-nav.is-solid { background: rgba(246, 241, 231, 0.94); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(6px); }
+
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 1.1rem var(--gap);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-mark { font-family: var(--font-display); font-size: 1.3rem; text-decoration: none; letter-spacing: 0.02em; }
+
+.nav-links { display: flex; gap: 1.75rem; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.95rem; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+.nav-links a:hover { border-color: currentColor; }
+.nav-cta { border: 1px solid var(--ink); padding: 0.4em 1em !important; border-radius: 999px; }
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
+.nav-toggle span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* =============================================================
+   HERO — left-aligned, full-bleed
+============================================================= */
+.hero {
+  position: relative; min-height: 100svh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0; overflow: hidden;
+}
+.hero-media {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #d9c9a8 0%, #c98a5e 45%, #7c8a63 100%);
+}
+.hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20,17,12,0.55) 0%, rgba(20,17,12,0.05) 45%, rgba(20,17,12,0.15) 100%);
+}
+.hero-text {
+  position: relative; color: #fbf8f2; padding: 0 var(--gap) 2.5rem;
+  max-width: var(--max); margin: 0 auto; width: 100%;
+}
+.hero-kicker { font-size: 1rem; letter-spacing: 0.04em; opacity: 0.85; margin-bottom: 0.5rem; }
+.hero-names { font-size: clamp(3.5rem, 11vw, 7.5rem); line-height: 0.95; font-style: italic; }
+.hero-meta { margin-top: 0.75rem; font-size: 1.05rem; }
+
+.hero-countdown {
+  position: relative; display: flex; gap: clamp(1rem, 4vw, 2.5rem);
+  padding: 1.25rem var(--gap); max-width: var(--max); margin: 0 auto; width: 100%;
+  border-top: 1px solid rgba(251, 248, 242, 0.3);
+}
+.count-unit { color: #fbf8f2; display: flex; flex-direction: column; }
+.count-unit span { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); }
+.count-unit small { opacity: 0.8; font-size: 0.8rem; }
+
+/* =============================================================
+   OUR STORY
+============================================================= */
+.story { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--gap); align-items: center; }
+.story-media {
+  aspect-ratio: 4/5; border-radius: 4px;
+  background: linear-gradient(200deg, #c98a5e, #5b6b4c);
+}
+.story h2 { margin-bottom: 1rem; }
+.story-sign { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--clay); margin-top: 1rem; }
+
+/* =============================================================
+   DETAILS — vertical timeline (a real sequence, so numbering/rule is earned)
+============================================================= */
+.timeline { list-style: none; margin: 0 0 3rem; padding: 0; border-top: 1px solid var(--line); }
+.timeline li {
+  display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem;
+  padding: 1.75rem 0; border-bottom: 1px solid var(--line);
+}
+.tl-time { font-family: var(--font-display); font-style: italic; color: var(--clay); }
+.tl-body h3 { margin-bottom: 0.25rem; font-size: 1.2rem; }
+.tl-body p { margin: 0; }
+
+.details-extra { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.details-extra h4 { margin-bottom: 0.4rem; font-size: 1rem; }
+.text-link { color: var(--clay); text-decoration: underline; text-underline-offset: 3px; }
+
+/* =============================================================
+   WEDDING PARTY
+============================================================= */
+.party-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.party-photo { aspect-ratio: 1; border-radius: 4px; background: linear-gradient(160deg, #e7ded0, #a9613f); margin-bottom: 0.75rem; }
+.party-grid figure { margin: 0; }
+.party-grid figcaption { font-size: 0.95rem; }
+.party-grid figcaption span { display: block; color: var(--olive); font-size: 0.82rem; margin-top: 0.15rem; }
+
+/* =============================================================
+   GALLERY — masonry via CSS columns + lightbox
+============================================================= */
+.gallery-grid { columns: 3 220px; column-gap: 1rem; }
+.gallery-grid img {
+  width: 100%; display: block; margin-bottom: 1rem; border-radius: 3px;
+  cursor: zoom-in; break-inside: avoid;
+}
+.lightbox {
+  position: fixed; inset: 0; background: rgba(20, 17, 12, 0.92); z-index: 200;
+  display: flex; align-items: center; justify-content: center; padding: 5vh 5vw;
+}
+.lightbox img { max-width: 100%; max-height: 100%; border-radius: 4px; }
+.lightbox-close {
+  position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: 0;
+  color: #fbf8f2; font-size: 2rem; cursor: pointer; line-height: 1;
+}
+
+/* =============================================================
+   TRAVEL
+============================================================= */
+.travel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.travel-grid h4 { margin-bottom: 0.4rem; font-size: 1rem; }
+
+/* =============================================================
+   FAQ — accordion (plain rows, no card chrome)
+============================================================= */
+.accordion { border-top: 1px solid var(--line); }
+.acc-item { border-bottom: 1px solid var(--line); }
+.acc-trigger {
+  width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+  font-family: var(--font-body); font-size: 1.05rem; padding: 1.25rem 0;
+  display: flex; justify-content: space-between; align-items: center; color: var(--ink);
+}
+.acc-trigger::after { content: "+"; font-size: 1.3rem; color: var(--clay); transition: transform 0.25s ease; }
+.acc-trigger[aria-expanded="true"]::after { transform: rotate(45deg); }
+.acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.acc-panel p { padding-bottom: 1.25rem; }
+
+/* =============================================================
+   REGISTRY
+============================================================= */
+.registry-links { display: flex; gap: 2rem; margin-top: 0.5rem; }
+.registry-links a { text-decoration: underline; text-underline-offset: 3px; color: var(--clay); }
+
+/* =============================================================
+   RSVP — Google Form wrapped in a card so it reads as part of
+   the site instead of a plain embedded white rectangle
+============================================================= */
+.rsvp { text-align: center; }
+.rsvp-intro { max-width: 60ch; margin: 0 auto 2rem; }
+.rsvp-intro p { margin: 0 auto; }
+.rsvp-form-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(43, 38, 32, 0.06);
+}
+.rsvp-form-wrap iframe {
+  width: 100%;
+  height: 900px; /* Google Forms are tall; trim this once your real form's length is set */
+  border: 0;
+  display: block;
+  border-radius: 6px;
+}
+@media (max-width: 600px) {
+  .rsvp-form-wrap iframe { height: 1100px; } /* form fields stack taller on narrow screens */
+}
+
+/* =============================================================
+   FOOTER
+============================================================= */
+.site-footer {
+  background: var(--ink); color: var(--paper); text-align: center; padding: 3rem var(--gap);
+}
+.music-player { max-width: 360px; margin: 1rem auto 0; }
+audio { width: 100%; }
+
+/* =============================================================
+   RESPONSIVE
+============================================================= */
+@media (max-width: 860px) {
+  .nav-links {
+    position: fixed; inset: 0 0 0 30%; background: var(--paper);
+    flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 2rem var(--gap); gap: 1.5rem; transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-links.is-open { transform: translateX(0); }
+  .nav-toggle { display: flex; }
+
+  .story { grid-template-columns: 1fr; }
+  .story-media { order: -1; }
+  .details-extra { grid-template-columns: 1fr; }
+  .party-grid { grid-template-columns: repeat(2, 1fr); }
+  .travel-grid { grid-template-columns: 1fr; }
+  .gallery-grid { columns: 2 160px; }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
