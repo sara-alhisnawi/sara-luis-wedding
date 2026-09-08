@@ -27,16 +27,10 @@
 <!-- ============================================ -->
 <!-- NAV                                           -->
 <!-- ============================================ -->
-<header class="site-nav" id="siteNav">
-  <div class="nav-inner">
-    <a href="#home" class="nav-mark">S&amp;L</a>
     <nav class="nav-links" id="navLinks">
       <a href="#story">Our story</a>
       <a href="#details">Details</a>
-      <a href="#party">Wedding party</a>
       <a href="#gallery">Gallery</a>
-      <a href="#travel">Travel</a>
-      <a href="#faq">Q&amp;A</a>
       <a href="#registry">Registry</a>
       <a href="#rsvp" class="nav-cta">RSVP</a>
     </nav>
@@ -120,18 +114,6 @@
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- WEDDING PARTY                                 -->
-  <!-- ============================================ -->
-  <section class="party" id="party">
-    <h2>Wedding party</h2>
-    <div class="party-grid">
-      <figure><div class="party-photo" aria-hidden="true"></div><figcaption>Maya Chen<span>Maid of Honor</span></figcaption></figure>
-      <figure><div class="party-photo" aria-hidden="true"></div><figcaption>Diego Ramos<span>Best Man</span></figcaption></figure>
-      <figure><div class="party-photo" aria-hidden="true"></div><figcaption>Ana Ferreira<span>Bridesmaid</span></figcaption></figure>
-      <figure><div class="party-photo" aria-hidden="true"></div><figcaption>Jordan Blake<span>Groomsman</span></figcaption></figure>
-    </div>
-  </section>
 
   <!-- ============================================ -->
   <!-- GALLERY — masonry + lightbox                  -->
@@ -154,51 +136,6 @@
     <img id="lightboxImg" src="" alt="" />
   </div>
 
-  <!-- ============================================ -->
-  <!-- TRAVEL                                        -->
-  <!-- ============================================ -->
-  <section class="travel" id="travel">
-    <h2>Travel &amp; stay</h2>
-    <div class="travel-grid">
-      <div>
-        <h4>Recommended hotel</h4>
-        <p>The Wren Hotel — 10 min from the venue. Ask for the "Sara &amp; Luis" room block for a discounted rate.</p>
-      </div>
-      <div>
-        <h4>Flying in</h4>
-        <p>Nearest airport: John Wayne (SNA), about 35 minutes from the venue.</p>
-      </div>
-      <div>
-        <h4>Things to do</h4>
-        <p>Staying the weekend? We love the botanical garden downtown and the Saturday farmers' market.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- FAQ — accordion                               -->
-  <!-- ============================================ -->
-  <section class="faq" id="faq">
-    <h2>Questions</h2>
-    <div class="accordion" id="accordion">
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">Can I bring a plus-one?</button>
-        <div class="acc-panel"><p>Your invitation and the RSVP form will say whether a plus-one is included. If you're not sure, just ask.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">Are kids welcome?</button>
-        <div class="acc-panel"><p>We love your little ones, but we're keeping the celebration adults-only so everyone can relax and enjoy the night.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">What's the weather like in June?</button>
-        <div class="acc-panel"><p>Warm and dry, usually in the mid-70s°F. The ceremony is outdoors, with the reception indoors.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">By when should I RSVP?</button>
-        <div class="acc-panel"><p>Please RSVP by April 19, 2027 so we can finalize catering.</p></div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================ -->
   <!-- REGISTRY                                      -->
@@ -218,41 +155,19 @@
   <section class="rsvp" id="rsvp">
     <div class="rsvp-intro">
       <h2>RSVP</h2>
-      <p>Please respond by April 19, 2027. One response per guest, please — if you have a plus-one, have them fill out their own.</p>
+      <p>Please respond by April 19, 2027. We can't wait to celebrate with you!</p>
     </div>
-    <form class="rsvp-form" id="rsvpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="field">
-        <label for="name">Full name</label>
-        <input type="text" id="name" name="name" required />
-      </div>
-      <div class="field">
-        <label for="attending">Will you attend?</label>
-        <select id="attending" name="attending" required>
-          <option value="">Choose one</option>
-          <option value="Joyfully accepts">Joyfully accepts</option>
-          <option value="Regretfully declines">Regretfully declines</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="guests">Number of guests (including you)</label>
-        <input type="number" id="guests" name="guests" min="1" max="4" value="1" />
-      </div>
-      <div class="field">
-        <label for="meal">Meal preference</label>
-        <select id="meal" name="meal">
-          <option value="No preference">No preference</option>
-          <option value="Chicken">Chicken</option>
-          <option value="Fish">Fish</option>
-          <option value="Vegetarian">Vegetarian</option>
-        </select>
-      </div>
-      <div class="field field-wide">
-        <label for="message">Message for the couple (optional)</label>
-        <textarea id="message" name="message" rows="3"></textarea>
-      </div>
-      <button type="submit" class="btn-primary">Send RSVP</button>
-      <p class="form-status" id="formStatus" role="status"></p>
-    </form>
+    <div class="rsvp-form-wrap">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSctcUOJsmEqbXuwv84mv-C14k9SwEbnl5H0AIANRMx9-NrSQQ/viewform" 
+        width="100%" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
   </section>
 
 </main>

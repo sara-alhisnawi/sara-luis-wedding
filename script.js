@@ -89,4 +89,3 @@ document.querySelectorAll('#galleryGrid img').forEach((img) => {
 function closeLightbox() { lightbox.hidden = true; lightboxImg.src = ''; }
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-d

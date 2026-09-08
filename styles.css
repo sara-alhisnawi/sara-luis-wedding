@@ -245,3 +245,74 @@ audio { width: 100%; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+/* =============================================================
+   RSVP FORM — fix the ugly default form styles
+============================================================= */
+.rsvp-form {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  background: white;
+  color: var(--ink);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--clay);
+  box-shadow: 0 0 0 3px rgba(169, 97, 63, 0.15);
+}
+
+.btn-primary {
+  background: var(--clay);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: #8a4f33;
+  transform: scale(1.02);
+}
+
+.form-status {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--olive);
+}
